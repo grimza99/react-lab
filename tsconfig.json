@@ -3,7 +3,7 @@
     // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-
+    "target": "es6",
     "strict": false,
     "jsx": "react"
   },
