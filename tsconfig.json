@@ -13,7 +13,6 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "allowJs": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
