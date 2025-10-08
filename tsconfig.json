@@ -3,9 +3,18 @@
     // File Layout
     "rootDir": "./src",
     "outDir": "./dist",
-    "target": "es6",
+
+    // Type Checking
     "strict": false,
-    "jsx": "react"
+    "jsx": "react",
+
+    //module
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
