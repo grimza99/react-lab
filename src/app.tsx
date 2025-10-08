@@ -1,29 +1,8 @@
+import { getMyAwesomePic } from "./api/getPhoto.js";
 import React from "./core/react.js";
+import { resourceCache, Suspense } from "./core/suspense.js";
 import { useState } from "./hooks/useState.js";
 
-
-/** 리소스 캐시 */
-const resourceCache = {};
-/** 사진 URL 생성기 */
-const photoURL = (seed) =>
-  `https://picsum.photos/seed/${encodeURIComponent(seed)}/200`;
-
-const createResource = (asyncTask, key, fallback) => {
-  if (resourceCache[key]) return resourceCache[key];
-  const promise = asyncTask();
-  throw { promise, key, fallback };
-};
-const getMyAwesomePic = (seed) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(photoURL(seed)), 1500);
-  });
-};
-
-const Suspense = (props, children) => {
-  const { fallback, key, task } = props;
-  createResource(task, key, fallback);
-  return children;
-};
 /** 어플리케이션 */
 export const App = () => {
   const [name, setName] = useState("react");
