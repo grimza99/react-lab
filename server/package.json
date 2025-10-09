@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs"
+  },
+  "dependencies": {
+    "express": "^4",
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
