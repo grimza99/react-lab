@@ -1,4 +1,4 @@
-export const render = function (el, container) {
+export const render = function (el, container, { attachEvents = true } = {}) {
   let domEl;
   // 1. el의 유형을 확인한다.
 
@@ -14,9 +14,9 @@ export const render = function (el, container) {
   // 3. domEl에 props를 설정한다.
   let elProps = el.props ? Object.keys(el.props) : null;
   if (elProps && elProps.length > 0) {
-    elProps.forEach(function (prop) {
-      return (domEl[prop] = el.props[prop]);
-    });
+    for (const key in el.props) {
+      domEl[key] = el.props[key];
+    }
   }
   // 4. 자식을 만든다.
   if (el.children && el.children.length > 0) {
@@ -24,6 +24,6 @@ export const render = function (el, container) {
     el.children.forEach(function (node) {
       return render(node, domEl);
     });
-  } // 4. DOM 노드를 컨테이너에 추가한다.
+  } // 5. DOM 노드를 컨테이너에 추가한다.
   container.appendChild(domEl);
 };
